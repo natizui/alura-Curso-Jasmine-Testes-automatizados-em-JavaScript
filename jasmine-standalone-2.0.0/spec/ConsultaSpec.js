@@ -25,7 +25,7 @@ describe("Consulta", function() {
     });
 
     it("deve cobrar preco especifico dependendo do procedimento", function() {
-      let consulta = new Consulta(guilherme, ["procedimento-comum", "raio-x", "procedimento-comum2", "gesso"], false, false);
+      let consulta = new Consulta(ana, ["procedimento-comum", "raio-x", "procedimento-comum2", "gesso"], false, false);
 
       expect(consulta.preco()).toEqual(25 + 55 + 25 + 32);
   });

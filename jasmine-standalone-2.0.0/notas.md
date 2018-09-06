@@ -32,3 +32,19 @@
 - **Teste de unidade**: é aquele que testa uma unidade (uma classe, por exemplo) isolado do resto. Esse tipo de teste não se preocupa com a integração daquela unidade com o resto. É rápido, mas não tão real.
 
 - **Teste de sistema**: é aquele que testa o sistema como uma caixa preta. Ele não conhece detalhes de implementação, e testa o sistema totalmente integrado. É um teste mais demorado, mas muito parecido com o mundo real.
+
+##Aula05
+- **Test-Driven Development(TDD)**: ciclo de desenvolvimento onde escrevemos um teste antes do código.
+  1. escrevemos um teste
+  2. o rodamos e o vimos falhar
+  3. escrevemos o código mais simples para passar o teste
+  4. rodamos-o novamente
+  5. dessa vez ele passou
+  6. refatoramos nosso código para que ele fique melhor e mais claro. 
+
+- Vantagens:
+  - Se sempre escrevermos o teste antes, garantimos que todo nosso código já "nasce" testado;
+
+  - Temos segurança para refatorar nosso código, afinal sempre refatoraremos com uma bateria de testes que garante que não quebraremos o comportamento já existente;
+
+  - Como o teste é a primeira classe que usa o seu código, você naturalmente tende a escrever código mais fácil de ser usado e, por consequência, mais fácil de ser mantido.
