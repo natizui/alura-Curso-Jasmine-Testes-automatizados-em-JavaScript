@@ -1,31 +1,51 @@
 describe("Consulta", function() {
 
-  it("não deve cobrar pelo retorno", function() {
-    let ana = new Paciente("Ana", 28, 50, 1.60);
-    let consulta = new Consulta(ana, [], true, true);
+  let ana;
 
-    expect(consulta.preco()).toEqual(0);
+  beforeEach(function() {
+    ana = new PacienteBuilder().constroi();
   });
 
-  it("cobrar 25 de cada procedimento comum", function() {
-    let ana = new Paciente("Ana", 28, 50, 1.60);
-    let consulta = new Consulta(ana, ["proc1", "proc2"], false, false);
+  describe("Retornos", function() {
 
-    expect(consulta.preco()).toEqual(50);
+    it("não deve cobrar pelo retorno", function() {
+      let consulta = new Consulta(ana, [], true, true);
+  
+      expect(consulta.preco()).toEqual(0);
+    });
+
   });
 
-  it("cobrar dobro de particular", function() {
-    let ana = new Paciente("Ana", 28, 50, 1.60);
-    let consulta = new Consulta(ana, ["proc1", "proc2"], true, false);
+  describe("Consultas por convênio", function() {
 
-    expect(consulta.preco()).toEqual(50*2);
+    it("cobrar 25 de cada procedimento comum", function() {
+      let consulta = new Consulta(ana, ["proc1", "proc2"], false, false);
+  
+      expect(consulta.preco()).toEqual(50);
+    });
+
+    it("deve cobrar preco especifico dependendo do procedimento", function() {
+      let consulta = new Consulta(guilherme, ["procedimento-comum", "raio-x", "procedimento-comum2", "gesso"], false, false);
+
+      expect(consulta.preco()).toEqual(25 + 55 + 25 + 32);
   });
 
-  it("cobrar dobro de particular para mesmos procedimentos especiais", function() {
-    let ana = new Paciente("Ana", 28, 50, 1.60);
-    let consulta = new Consulta(ana, ["gesso"], true, false);
+  });
 
-    expect(consulta.preco()).toEqual(32*2);
+  describe("Consultas particulares", function() {
+
+    it("cobrar dobro de particular", function() {
+      let consulta = new Consulta(ana, ["proc1", "proc2"], true, false);
+  
+      expect(consulta.preco()).toEqual(50*2);
+    });
+  
+    it("cobrar dobro de particular para mesmos procedimentos especiais", function() {
+      let consulta = new Consulta(ana, ["gesso"], true, false);
+  
+      expect(consulta.preco()).toEqual(32*2);
+    });
+
   });
 
 })
