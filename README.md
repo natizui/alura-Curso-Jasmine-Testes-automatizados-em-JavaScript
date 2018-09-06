@@ -1,4 +1,4 @@
-##Curso Jasmine: Testes automatizados em JavaScript
+## Curso Jasmine: Testes automatizados em JavaScript
 
 Este repositório contém as minhas resoluções para os exercicios do curso. Eu utilizei a _**versão 2.0.0**_ de _**Jasmine**_ disponibilizada nas aulas. 
 
